@@ -10,7 +10,20 @@ class UserController {
         }
         const { id, name, email, provider } = await User.create(req.body);
 
-        return res.json({ id, name, email, provider });
+        return res.json({
+            id,
+            name,
+            email,
+            provider,
+        });
+    }
+
+    async update(req, res) {
+        const { email, oldPassword } = req.body;
+
+        const user = await User.findByPk(req.userId);
+
+        return res.json({ ok: 'true' });
     }
 }
 
