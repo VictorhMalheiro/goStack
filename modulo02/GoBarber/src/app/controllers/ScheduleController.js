@@ -1,8 +1,7 @@
-import { startOfDay, endOfDay } from 'date-fns';
+import { startOfDay, endOfDay, parseISO } from 'date-fns';
 import { Op } from 'sequelize';
-import { parseISO } from 'date-fns/esm';
-import Appointment from '../models/Appointment';
 import User from '../models/User';
+import Appointment from '../models/Appointment';
 
 class ScheduleController {
     async index(req, res) {
@@ -27,8 +26,8 @@ class ScheduleController {
                         endOfDay(parsedDate),
                     ],
                 },
-                order: ['date'],
             },
+            order: ['date'],
         });
 
         return res.json(appointments);
