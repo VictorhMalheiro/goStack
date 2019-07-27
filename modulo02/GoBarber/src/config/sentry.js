@@ -1,3 +1,3 @@
 export default {
-    dns: 'https://680226288a1e43a18ea4cf7aff9a2e56@sentry.io/1514038',
+    dsn: 'https://260fa70472b04d6aa7dc2126dcf0ccab@sentry.io/1515137',
 };
