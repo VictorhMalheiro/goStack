@@ -4,7 +4,10 @@ import "./App.css";
 import PostList from "./components/PostList";
 
 function App() {
-  return <PostList />;
+  return (
+    <>
+      <Header />
+      <PostList />
+    </>
+  );
 }
-
-export default App;
