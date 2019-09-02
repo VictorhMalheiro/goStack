@@ -34,7 +34,7 @@ function PostItem({ author, date, content, comments, img }) {
   return (
     <div class="post">
       <PostInfo author={author} date={date} />
-      <p class="post-content">{content}</p>
+      <p>{content}</p>
       <img src={img} alt="" />
       <PostComments key={comments.id} comments={comments} />
     </div>

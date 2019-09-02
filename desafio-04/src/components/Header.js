@@ -4,7 +4,7 @@ function Header() {
   return (
     <header>
       <nav>
-        <img class="avatar" src="https://api.adorable.io/avatars/200/" />
+        <img  src="./assets/img/facebook-1.png" />
         <div>
           <span>Meu perfil</span>
           <i className="material-icons">account_circle</i>

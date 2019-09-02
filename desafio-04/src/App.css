@@ -51,7 +51,7 @@ header nav {
 
 .create {
   width: 700px;
-  margin: 0 auto 20px;
+  margin: 20px auto;
   background: white;
   border-radius: 8px;
   color: #3e3e3e;
@@ -106,19 +106,21 @@ header nav {
 }
 
 .comment {
-  flex: 1;
-  flex-direction: row;
-  /* flex-wrap: wrap; */
+  display: flex;
+  margin: 5px;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 .comment > img {
-  flex-shrink: 0;
-  width: 28px;
+  flex: 0;
   border-radius: 100%;
+  width: 28px;
+  height: 28px;
   margin: 5px;
 }
 
 .comment-content {
-  flex: 0 1;
+  flex: 1;
   flex-direction: row;
   align-content: flex-end;
   padding: 15px;
