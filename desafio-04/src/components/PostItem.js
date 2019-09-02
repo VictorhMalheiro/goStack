@@ -9,10 +9,7 @@ function PostComments({ comments }) {
           <img
             src={comment.author.avatar + comment.author.name + ".png"}
           />
-          <div class="comment-content">
-            <strong>{comment.author.name}</strong>
-            <span>{comment.content}</span>
-          </div>
+          <div class="comment-content"><strong>{comment.author.name}</strong><span>{comment.content}</span></div>
         </div>
       ))}
     </div>
@@ -33,8 +30,8 @@ function PostInfo({ author, date }) {
 function PostItem({ author, date, content, comments, img }) {
   return (
     <div class="post">
-      <PostInfo author={author} date={date} />
-      <p>{content}</p>
+      <PostInfo author={author} date={date} />      
+      <div class="post-content">{content}</div>
       <img src={img} alt="" />
       <PostComments key={comments.id} comments={comments} />
     </div>
