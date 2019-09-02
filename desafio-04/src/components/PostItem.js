@@ -1,33 +1,31 @@
 import React from "react";
 
-function PostInfo({ author, date }) {
+function PostComments({ comments }) {
   return (
-    <div class="post-info">
-      <img class="avatar" src={author.avatar + author.name + ".png"} alt="" />
-      <div class="datails">
-        <span>{author.name}</span>
-        <span>{date}</span>
-      </div>
+    <div>
+      {/* <div className="divider" /> */}
+      {comments.map(comment => (
+        <div key={comment.id} class="comment">
+          <img
+            src={comment.author.avatar + comment.author.name + ".png"}
+          />
+          <div class="comment-content">
+            <strong>{comment.author.name}</strong>
+            <span>{comment.content}</span>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
 
-function PostComments({ comments }) {
+function PostInfo({ author, date }) {
   return (
-    <div class="comment">
-      <div className="divider" />
-      {comments.map(comment => (
-        <div key={comment.id} class="comment">
-          <img
-            class="avatar"
-            src={comment.author.avatar + comment.author.name + ".png"}
-          />
-          <p class="comment-content">
-            <span>{comment.author.name}</span>
-            {comment.content}
-          </p>
-        </div>
-      ))}
+    <div class="post-info">
+      <img class="avatar" src={author.avatar + author.name + ".png"} alt="" />
+      <div class="details">
+        <strong>{author.name} </strong><span>{date}</span>
+      </div>
     </div>
   );
 }
