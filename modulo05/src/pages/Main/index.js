@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { FaGithubAlt, FaPlus } from 'react-icons/fa';
+import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
 
 import api from '../../services/api';
 
@@ -33,6 +33,7 @@ export default class Main extends Component {
     this.setState({
       repositories: [...repositories, data],
       newRepo: '',
+      loading: false,
     })
   }
   render () {
@@ -54,7 +55,11 @@ export default class Main extends Component {
           />
 
           <SubmitButton loading={loading}>
-            <FaPlus color="#FFF" size={14} />
+            { loading ? (
+              <FaSpinner color="#FFF" size={14} />
+              ) : (
+                <FaPlus color="#FFF" size={14} />
+              ) }
           </SubmitButton>
         </Form>
       </Container>
