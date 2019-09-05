@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import api from '../../services/api';
-import {FaSpinner } from 'react-icons/fa';
-import { Loading } from './styles';
+
+import {FaSpinner, FaArrowLeft } from 'react-icons/fa';
+import Container from '../../components/Container';
+
+import { Loading, Owner } from './styles';
 
 export default class Repository extends Component {
   static propTypes = {
@@ -48,6 +52,15 @@ export default class Repository extends Component {
     if(loading) {
       return <Loading><FaSpinner color="#FFF" size={36} /></Loading>;
     }
-    return <h1>Repository:</h1>;
+    return (
+      <Container>
+        <Owner>
+          <Link to="/"><FaArrowLeft color="#EEE" size={16}/> Voltar aos repositórios</Link>
+          <img src={repository.owner.avatar_url} alt={repository.owner.login}/>
+            <h1>{repository.name}</h1>
+            <p>{repository.description}</p>
+        </Owner>
+      </Container>
+    );
   }
 }
