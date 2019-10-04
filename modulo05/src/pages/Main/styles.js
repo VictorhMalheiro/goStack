@@ -4,21 +4,34 @@ export const Container = styled.div`
   max-width: 700px;
   background: #fff;
   border-radius: 4px;
-  box-shadow: 0 0 20 rgba(0, 0, 0, 0.1);
   padding: 30px;
   margin: 80px auto;
+  box-shadow: 0 0px 20px -7px rgba(0, 0, 0, 0.15);
+`;
+
+export const Title = styled.div`
+  background: #7159ce;
+  max-width: 200px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 100px;
+  box-shadow: 0 5px 20px -7px rgba(113, 89, 206, 0.5);
 
   h1 {
     font-size: 20px;
     display: flex;
-    flex-direction: row;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px;
+    color: #fff;
 
     svg {
       margin-right: 10px;
     }
   }
 `;
+
 export const Form = styled.form`
   margin-top: 30px;
   display: flex;

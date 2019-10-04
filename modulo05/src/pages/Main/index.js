@@ -7,7 +7,7 @@ import api from '../../services/api';
 
 import Container from '../../components/Container';
 
-import { Form, SubmitButton, List } from './styles';
+import { Form, SubmitButton, List, Title } from './styles';
 import { list } from 'postcss';
 
 export default class Main extends Component {
@@ -61,11 +61,12 @@ export default class Main extends Component {
 
     return (
       <Container>
-        <h1>
-          <FaGithubAlt />
-          Repositórios
-        </h1>
-
+        <Title>
+          <h1>
+            <FaGithubAlt />
+            Repositórios
+          </h1>
+        </Title>
         <Form onSubmit={this.handleSubmit}>
           <input
             type="text"
