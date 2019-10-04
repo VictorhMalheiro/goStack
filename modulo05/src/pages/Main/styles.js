@@ -16,7 +16,7 @@ export const Title = styled.div`
   padding-right: 30px;
   border-radius: 100px;
   box-shadow: 0 5px 20px -7px rgba(113, 89, 206, 0.5);
-
+  transition: all 0.2s ease-in-out;
   h1 {
     font-size: 20px;
     display: flex;
@@ -27,8 +27,15 @@ export const Title = styled.div`
     color: #fff;
 
     svg {
-      margin-right: 10px;
+      color: #fff;
     }
+    svg :hover {
+      color: #2b2754;
+    }
+  }
+  :hover {
+    transform: scale(1.1);
+    background: #7865e5;
   }
 `;
 
