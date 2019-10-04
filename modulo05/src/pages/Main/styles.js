@@ -29,13 +29,11 @@ export const Title = styled.div`
     svg {
       color: #fff;
     }
-    svg :hover {
-      color: #2b2754;
-    }
   }
   :hover {
     transform: scale(1.1);
     background: #7865e5;
+    flex-direction: row;
   }
 `;
 
