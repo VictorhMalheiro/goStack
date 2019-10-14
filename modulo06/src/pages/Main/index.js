@@ -94,7 +94,7 @@ export default class Main extends Component {
         <Form>
           <Input
             autoCorrect={false}
-            autoCaptaliz="none"
+            autoCaptalize="none"
             placeholder="Adicionar usuário"
             value={newUser}
             onChangeText={text =>

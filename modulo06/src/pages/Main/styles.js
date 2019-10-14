@@ -35,7 +35,7 @@ export const SubmitButton = styled(RectButton)`
 `;
 
 export const List = styled.FlatList.attrs({
-  showVerticalScrollIndicator: false,
+  showsVerticalScrollIndicator: false,
 })`
   margin-top: 20px;
 `;
@@ -56,16 +56,17 @@ export const Name = styled.Text`
   font-size: 14px;
   color: #333;
   font-weight: bold;
+  margin-top: 4px;
   text-align: center;
 `;
 
 export const Bio = styled.Text.attrs({
   numberOfLines: 2,
 })`
-  font-size: 14px;
-  color: #333;
-  font-weight: bold;
-  margin-top: 4px;
+  font-size: 13px;
+  line-height: 18px;
+  color: #999;
+  margin-top: 5px;
   text-align: center;
 `;
 
