@@ -1,5 +1,5 @@
-# goStack
-🚀 Bootcamp goStack - Rocketseat
+# 🚀 goStack
+ Bootcamp goStack - Rocketseat
 
 - Node.js
 - React
