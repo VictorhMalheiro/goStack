@@ -1,4 +1,3 @@
-/* eslint-disable react/state-in-constructor */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -26,6 +25,7 @@ export default class User extends Component {
   static propTypes = {
     navigation: PropTypes.shape({
       getParam: PropTypes.func,
+      navigate: PropTypes.func,
     }).isRequired,
   };
 
@@ -43,10 +43,11 @@ export default class User extends Component {
   }
 
   render() {
-    const { navigation } = this.state;
+    const { navigation } = this.props;
     const { stars } = this.state;
 
     const user = navigation.getParam('user');
+
     return (
       <Container>
         <Header>

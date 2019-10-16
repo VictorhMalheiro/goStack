@@ -53,14 +53,6 @@ export default class Main extends Component {
     }
   }
 
-  handleNavigate = user => {
-    const { navigation } = this.props;
-
-    navigation.navigate('User', {
-      user,
-    });
-  };
-
   handleAddUser = async () => {
     const { users, newUser } = this.state;
 
@@ -84,6 +76,14 @@ export default class Main extends Component {
     });
 
     Keyboard.dismiss();
+  };
+
+  handleNavigate = user => {
+    const { navigation } = this.props;
+
+    navigation.navigate('User', {
+      user,
+    });
   };
 
   render() {
