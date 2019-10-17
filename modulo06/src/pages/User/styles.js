@@ -12,7 +12,7 @@ export const Header = styled.View`
   border-color: #eee;
 `;
 
-export const Avatar = styled.View`
+export const Avatar = styled.Image`
   width: 100px;
   height: 100px;
   border-radius: 50px;
