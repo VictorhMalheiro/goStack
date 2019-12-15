@@ -1,112 +1,58 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import { MdAddShoppingCart } from "react-icons/md";
 import { ProductList } from "./styles";
+import { formatPrice } from "../../util/format";
+import api from "../../services/api";
 
-export default function Home() {
-  return (
-    <ProductList>
-      <li>
-        <img
-          src={
-            "https://static.netshoes.com.br/produtos/tenis-nike-zoom-gravity-feminino/38/HZM-1747-038/HZM-1747-038_zoom1.jpg?ims=544x"
-          }
-          alt=""
-        />
-        <strong>Tenis Muito Legal</strong>
-        <span>R$ 299,90</span>
-        <button>
-          <div>
-            <MdAddShoppingCart size={16} color="#FFF" />3
-          </div>
+class Home extends Component {
+  state = {
+    products: []
+  };
 
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src={
-            "https://static.netshoes.com.br/produtos/tenis-nike-zoom-gravity-feminino/38/HZM-1747-038/HZM-1747-038_zoom1.jpg?ims=544x"
-          }
-          alt=""
-        />
-        <strong>Tenis Muito Legal</strong>
-        <span>R$ 299,90</span>
-        <button>
-          <div>
-            <MdAddShoppingCart size={16} color="#FFF" />3
-          </div>
+  async componentDidMount() {
+    const response = await api.get("products");
 
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src={
-            "https://static.netshoes.com.br/produtos/tenis-nike-zoom-gravity-feminino/38/HZM-1747-038/HZM-1747-038_zoom1.jpg?ims=544x"
-          }
-          alt=""
-        />
-        <strong>Tenis Muito Legal</strong>
-        <span>R$ 299,90</span>
-        <button>
-          <div>
-            <MdAddShoppingCart size={16} color="#FFF" />3
-          </div>
+    const data = response.data.map(product => ({
+      ...product,
+      priceFormatted: formatPrice(product.price)
+    }));
+    this.setState({ products: data });
+  }
 
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src={
-            "https://static.netshoes.com.br/produtos/tenis-nike-zoom-gravity-feminino/38/HZM-1747-038/HZM-1747-038_zoom1.jpg?ims=544x"
-          }
-          alt=""
-        />
-        <strong>Tenis Muito Legal</strong>
-        <span>R$ 299,90</span>
-        <button>
-          <div>
-            <MdAddShoppingCart size={16} color="#FFF" />3
-          </div>
+  handleAddProduct = product => {
+    const { dispatch } = this.props;
 
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src={
-            "https://static.netshoes.com.br/produtos/tenis-nike-zoom-gravity-feminino/38/HZM-1747-038/HZM-1747-038_zoom1.jpg?ims=544x"
-          }
-          alt=""
-        />
-        <strong>Tenis Muito Legal</strong>
-        <span>R$ 299,90</span>
-        <button>
-          <div>
-            <MdAddShoppingCart size={16} color="#FFF" />3
-          </div>
+    dispatch({
+      type: "ADD_TO_CART",
+      product
+    });
+  };
 
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-      <li>
-        <img
-          src={
-            "https://static.netshoes.com.br/produtos/tenis-nike-zoom-gravity-feminino/38/HZM-1747-038/HZM-1747-038_zoom1.jpg?ims=544x"
-          }
-          alt=""
-        />
-        <strong>Tenis Muito Legal</strong>
-        <span>R$ 299,90</span>
-        <button>
-          <div>
-            <MdAddShoppingCart size={16} color="#FFF" />3
-          </div>
+  render() {
+    const { products } = this.state;
 
-          <span>ADICIONAR AO CARRINHO</span>
-        </button>
-      </li>
-    </ProductList>
-  );
+    return (
+      <ProductList>
+        {products.map(product => (
+          <li key={product.id}>
+            <img src={product.image} alt={product.title} />
+            <strong>{product.title}</strong>
+            <span>{product.priceFormatted}</span>
+            <button
+              type="button"
+              onClick={() => this.handleAddProduct(product)}
+            >
+              <div>
+                <MdAddShoppingCart size={16} color="#FFF" />3
+              </div>
+              <span>ADICIONAR AO CARRINHO</span>
+            </button>
+          </li>
+        ))}
+      </ProductList>
+    );
+  }
 }
+
+export default connect()(Home);
