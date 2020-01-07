@@ -11,7 +11,7 @@ import logo from "../../assets/images/Logo.svg";
 function Header({ cartSize }) {
   return (
     <Container>
-      <Link>
+      <Link to="/">
         <img src={logo} alt="Rocketshoes" />
       </Link>
 
